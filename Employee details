@@ -4,10 +4,6 @@ from tkinter import messagebox, ttk, filedialog
 import csv
 
 DB = "company_gui.db"
-
-# -----------------------------
-# DB Setup
-# -----------------------------
 def init_db():
     conn = sqlite3.connect(DB)
     c = conn.cursor()
@@ -56,10 +52,6 @@ def get_employees(search=""):
     rows = c.fetchall()
     conn.close()
     return rows
-
-# -----------------------------
-# GUI Functions
-# -----------------------------
 def add_employee_gui():
     name = entry_name.get().strip()
     role = entry_role.get().strip()
@@ -165,9 +157,6 @@ def export_to_csv():
     except Exception as e:
         messagebox.showerror("Export Error", f"Failed to export: {e}")
 
-# -----------------------------
-# GUI Layout
-# -----------------------------
 init_db()
 root = tk.Tk()
 root.title("Company Employee Management ")
